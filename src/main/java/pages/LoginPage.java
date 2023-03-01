@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.layertree.model.StickyPositionConstraint;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends PageBase {
@@ -12,32 +11,34 @@ public class LoginPage extends PageBase {
     }
 
     //поиск через аннотацию упростит нам задачу
-    @FindBy(id="userName") //TimurTest
+    @FindBy(id = "userName") //TimurTest
     WebElement userName; //как только он будет вызван где-то внизу, он тут же будет вызываться
 
-    @FindBy(id="password") //TimurTest1!
+    @FindBy(id = "password") //TimurTest1!
     WebElement password;
 
-    @FindBy(id="login")
+    @FindBy(id = "login")
     WebElement loginButton;
 
+    public ContactsPage login(String uName, String pass) {
+        type(userName, uName);
+        type(password, pass);
+        click(loginButton);
+        return new ContactsPage(driver);
+    }
+
+    public LoginPage loginNegative(String uName, String pass) {
+        type(userName, uName);
+        type(password, pass);
+        click(loginButton);
+        return this; // т.к. мы никуда не проваливаемся пусть показывает эту же страницу сценарий же негативный
+    }
 }
-/*
 
 
-    public ProfilePage login(String uName, String pass){
-        type(userName, uName);
-        type(password, pass);
-        click(loginButton);
-        return new ProfilePage(driver);
-    }
 
 
-    public LoginPage loginNegative(String uName, String pass){
-        type(userName, uName);
-        type(password, pass);
-        click(loginButton);
-        return this;
-    }
-    */
+
+
+
 
