@@ -17,6 +17,7 @@ public class LoginPage extends PageBase {
     @FindBy(id = "password") //TimurTest1!
     WebElement password;
 
+
     @FindBy(id = "login")
     WebElement loginButton;
 
@@ -33,6 +34,10 @@ public class LoginPage extends PageBase {
         click(loginButton);
         return this; // т.к. мы никуда не проваливаемся пусть показывает эту же страницу сценарий же негативный
     }
+
+
+
+
 }
 
 
