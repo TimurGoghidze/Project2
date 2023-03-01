@@ -15,7 +15,7 @@ public abstract class PageBase { // делаем абстрактый класс
 
     public PageBase(WebDriver driver) { // вместо того чтобы писать вручную можем кликнуть создать конструктор
         this.driver = driver;
-        PageFactory.initElements(driver, this);// в конструкто добавляем эту строку для регистраци посредство this и позволит
+        PageFactory.initElements(driver, this);// в конструктор добавляем эту строку для регистраци посредство this и позволит
         // потом делать осущ поиска через @FindBy
     }
 
