@@ -44,4 +44,11 @@ public abstract class PageBase { // делаем абстрактый класс
             element.sendKeys(text);
         }
     }
+    public static void sleep() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
