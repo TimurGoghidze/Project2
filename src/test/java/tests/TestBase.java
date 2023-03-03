@@ -11,15 +11,18 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class TestBase { //make abstract class
     WebDriver driver;
+    String url;
 
-    private static Logger logger = LoggerFactory.getLogger(TestBase.class);//for logs
+    static Logger logger = LoggerFactory.getLogger(TestBase.class);//for logs
+
 
     @BeforeMethod
     public void init() {
         // Указываем путь к драйверу Chrome
         System.setProperty("webdriver.chrome.driver", "D:\\2 tel run\\chromedriver\\chromedriver.exe");
         driver = new ChromeDriver();// Создаем экземпляр веб-драйвера Chrome
-        driver.get("https://demoqa.com/login");// Открываем сайт
+        url = "https://demoqa.com/login";
+        driver.get(url);// Открываем сайт
         driver.manage().window().maximize();  // Открываем окно браузера пошире
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //wait 5sec
     }

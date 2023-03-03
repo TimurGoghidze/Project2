@@ -8,10 +8,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class PageBase { // делаем абстрактый класс но будет лежать в основе
 
     WebDriver driver;
+    static Logger logger = LoggerFactory.getLogger(PageBase.class);//for logs
 
     public PageBase(WebDriver driver) { // вместо того чтобы писать вручную можем кликнуть создать конструктор
         this.driver = driver;
