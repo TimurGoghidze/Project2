@@ -68,20 +68,21 @@ public class AlertsPage extends PageBase {
     @FindBy(id = "promtButton")
     WebElement promtButton;
 
-    public AlertsPage clickOnMessageAlertButton(String msg) {//при нажатии появляется алерт с полем для введения текста
-        click(confirmButton);
+    public AlertsPage clickMessageAlertButton(String msg) {//при нажатии появляется алерт с полем для введения текста
+        click(promtButton);
         if (msg != null) {
             driver.switchTo().alert().sendKeys(msg); // for field msg
         }
         System.out.println(driver.switchTo().alert().getText());
-        driver.switchTo().alert().accept();
+            driver.switchTo().alert().accept();
+        sleep();
         return this;
     }
     @FindBy(id = "promptResult") // поиск всплывающего сообщения после нажатия кнопки
-    WebElement promtResult;//
+    WebElement promptResult;//
 
     public String getConfirmMessageResult() {
-        return promtResult.getText();
+        return promptResult.getText();
     }
 }
 

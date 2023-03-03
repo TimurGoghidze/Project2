@@ -21,7 +21,6 @@ public abstract class TestBase { //make abstract class
         // Указываем путь к драйверу Chrome
         System.setProperty("webdriver.chrome.driver", "D:\\2 tel run\\chromedriver\\chromedriver.exe");
         driver = new ChromeDriver();// Создаем экземпляр веб-драйвера Chrome
-        url = "https://demoqa.com/login";
         driver.get(url);// Открываем сайт
         driver.manage().window().maximize();  // Открываем окно браузера пошире
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //wait 5sec
