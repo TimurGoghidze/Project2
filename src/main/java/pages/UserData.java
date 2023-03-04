@@ -1,6 +1,6 @@
 package pages;
 
 public class UserData {
-    public final String USER_NAME="TimurTest";
-    public final String PASSWORD="TimurTest1!";
+    public static final String USER_NAME="TimurTest";
+    public static final String PASSWORD="TimurTest1!";
 }
