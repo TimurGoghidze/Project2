@@ -11,7 +11,7 @@ public class LoginPageTests extends TestBase{
     @Test
     public void loginPositiveTest(){
         logger.info("Starting login test");
-        LoginPage myLoginPage =  new LoginPage(driver);//входим на страницу
+        LoginPage myLoginPage =  new LoginPage(getDriver());//входим на страницу
         ContactsPage contactsPage = myLoginPage.login("TimurTest", "TimurTest1!"); //логинимся и задаём параметры входа
         sleep();
         Assert.assertEquals(contactsPage.getBooks().getText(),"Books :"); //так ли это,проверка

@@ -10,7 +10,7 @@ public class BookStoreLoginPage extends PageBase{
         super(driver);
 
     }
-    @FindBy (id="UserName")
+    @FindBy (id="userName")
     WebElement userName;
     @FindBy (id="password")
     WebElement pass;
