@@ -62,7 +62,7 @@ public class AlertsPage extends PageBase {
     WebElement confirmResult;//
 
     public String getConfirmResult() {
-        return getConfirmResult();
+        return confirmResult.getText();
     }
 
     @FindBy(id = "promtButton")
