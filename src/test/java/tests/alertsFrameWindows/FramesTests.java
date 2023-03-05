@@ -1,4 +1,19 @@
 package tests.alertsFrameWindows;
 
-public class FramesTests {
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+import pages.FramePage;
+import tests.TestBase;
+
+public class FramesTests extends TestBase {
+
+    @BeforeSuite
+    public void setUpInternal() {
+        super.setUrl("https://demoqa.com/frames");
+    }
+
+    @Test
+    public void simpleFrameTest(){
+        System.out.println(new FramePage(getDriver()).returnListOfFrames().getText());
+    }
 }
