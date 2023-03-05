@@ -39,8 +39,9 @@ public class BookStoreSmokeTest extends TestBase {
         bs.addToCollection();
         Assert.assertEquals(bs.getBookAddedMsg(), UserData.EXPECTED2); //  проверим другое сообщение
     }
+
     @AfterMethod
-    public void cleanUp(){
+    public void cleanUp() {
         ProfilePage profile = new ProfilePage(getDriver()); // каждый новый запуск будет происходить с чистого листа
         profile.deleteAllBooks();
 
