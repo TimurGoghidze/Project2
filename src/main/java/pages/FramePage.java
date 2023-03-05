@@ -15,17 +15,28 @@ public class FramePage extends PageBase {
     @FindBy(tagName = "iframe")
     List<WebElement> frames;
 
-    @FindBy(id = "frame2")
+    @FindBy(id = "frame1")
     WebElement frame1;
 
     private String text;
 
-    public FramePage returnListOfFrames(){
-        //System.out.println(frames.size());
-        text = driver.switchTo().frame(frame1).findElement(By.id("sampleHeading")).getText();//by id
-
-
+    public FramePage returnListOfFrames() {
+        System.out.println(frames.size());
+        driver.switchTo().frame(frame1).findElement(By.id("sampleHeading")).getText();
+//   System.out.println(frame1.getText());
+//        for (WebElement element :
+//                frames) {
+//            System.out.println(driver.switchTo().frame(element).findElement(By.id("sampleHeading")).getText());
+//        }
         return this;
+    }
+public void switchToFrameByIndex(int index){
+        driver.switchTo().frame(index);
+}
+
+    public void switchToFrameById(WebElement frame){
+        driver.switchTo().frame(frame); // switch by id
+        driver.switchTo().defaultContent();
     }
 
     public String getText() { //getter for text

@@ -13,7 +13,7 @@ public class FramesTests extends TestBase {
     }
 
     @Test
-    public void simpleFrameTest(){
-        System.out.println(new FramePage(getDriver()).returnListOfFrames().getText());
+    public void simpleFrameTest() {
+        new FramePage(getDriver()).returnListOfFrames();
     }
 }

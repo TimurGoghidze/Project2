@@ -28,7 +28,7 @@ public class WindowsTests extends TestBase {
     }
 
     @Test
-    public void testNewWindowMsg() { //ne funguje
+    public void testNewWindowMsg() { //из-за активного открывшегося окна тест не будет работать но тест хороший
         WindowsPage windowsPage = new WindowsPage(getDriver()).clickNewWindowMessage();
         Assert.assertEquals(windowsPage.getBody()
                 .getText(), "Knowledge increases by sharing but not by saving. " +
