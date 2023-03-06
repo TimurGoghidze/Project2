@@ -3,7 +3,6 @@ package pages;
 //Здесь будем добавлять повторяющийся участки кода
 // хранение общих методов и полей актуальных на той странице
 
-import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,11 +12,12 @@ import org.slf4j.LoggerFactory;
 
 public abstract class PageBase { // делаем абстрактый класс но будет лежать в основе
 
-    WebDriver driver;
+
+    private WebDriver driver;
     static Logger logger = LoggerFactory.getLogger(PageBase.class);//for logs
 
     public PageBase(WebDriver driver) { // вместо того чтобы писать вручную можем кликнуть создать конструктор
-        this.driver = driver;
+        this.setDriver(driver);
         PageFactory.initElements(driver, this);// в конструктор добавляем эту строку для регистраци посредство this и позволит
         // потом делать осущ поиска через @FindBy
     }
@@ -35,7 +35,7 @@ public abstract class PageBase { // делаем абстрактый класс
     }
 
     public void clickWithJSExecutor(WebElement element, int x, int y) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(" + x + "," + y + ")");
         click(element);
     }
@@ -47,11 +47,20 @@ public abstract class PageBase { // делаем абстрактый класс
             element.sendKeys(text);
         }
     }
+
     public static void sleep() {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public WebDriver getDriver() { // имплементация getDriver
+        return driver;
+    }
+
+    public void setDriver(WebDriver driver) { // имплементация setDriver
+        this.driver = driver;
     }
 }

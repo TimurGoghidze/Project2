@@ -5,9 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import javax.swing.*;
-import java.security.PublicKey;
-
 public class ButtonsPage extends PageBase {
     public ButtonsPage(WebDriver driver) {
         super(driver);
@@ -32,7 +29,7 @@ public class ButtonsPage extends PageBase {
     WebElement clickMeMsg;
 
     public ButtonsPage doubleClick() { //метод двойного щелчка
-        Actions action = new Actions(driver); // класс которому можно перечислять что желаем делать
+        Actions action = new Actions(getDriver()); // класс которому можно перечислять что желаем делать
         action.doubleClick(doubleClickBtn).perform(); //и в конце что бы запустить всю цепочку нужно написать perform
         return this;
     }
@@ -42,7 +39,7 @@ public class ButtonsPage extends PageBase {
     }
 
     public ButtonsPage rightClick() {
-        Actions action = new Actions(driver); // класс которому можно перечислять что желаем делать
+        Actions action = new Actions(getDriver()); // класс которому можно перечислять что желаем делать
         action.contextClick(rightClickBtn).perform(); //CONTEXT = Правый клик мыши и в конце что бы запустить всю цепочку нужно написать perform
         return this;
     }
@@ -51,14 +48,14 @@ public class ButtonsPage extends PageBase {
         return rightClickMessage.getText();//и вывести текст
     }
 
-    public ButtonsPage clickMeBtn() {
-        Actions action = new Actions(driver); // класс которому можно перечислять что желаем делать
+    public ButtonsPage clickMeBtn() { //методы как действия
+        Actions action = new Actions(getDriver()); // класс которому можно перечислять что желаем делать
         action.click(clickMeBtn).perform();
         sleep();
         return this;
     }
 
-    public String getClickMeMsg() { // метод чтобы обнаружить сообщение при правом нажатии
+    public String getClickMeMsg() { // поля как в начале пиши get.... метод чтобы обнаружить сообщение при правом нажатии
           return clickMeMsg.getText();//и вывести текст
     }
 

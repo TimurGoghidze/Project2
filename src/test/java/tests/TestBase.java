@@ -15,32 +15,41 @@ public abstract class TestBase { //make abstract class
     private String url;
 
     static Logger logger = LoggerFactory.getLogger(TestBase.class);//for logs
-public WebDriver getDriver(){ // теперь будет вызываться метод getter
-    return driver;
-}
 
-public void setUrl(String url){this.url =url;} //setter for url
+    public void setUrl(String url) {
+        this.url = url;
+    } //setter for url
 
     @BeforeMethod
     public void init() {
         // Указываем путь к драйверу Chrome
         System.setProperty("webdriver.chrome.driver", "D:\\2 tel run\\chromedriver\\chromedriver.exe");
-        driver = new ChromeDriver();// Создаем экземпляр веб-драйвера Chrome
-        driver.get(url);// Открываем сайт
-        driver.manage().window().maximize();  // Открываем окно браузера пошире
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //wait 5sec
+        setDriver(new ChromeDriver());// Создаем экземпляр веб-драйвера Chrome
+        getDriver().get(url);// Открываем сайт
+        getDriver().manage().window().maximize();  // Открываем окно браузера пошире
+        getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //wait 5sec
     }
 
     @AfterMethod(enabled = true)
     public void tearDown() {
-        driver.quit();
+        getDriver().quit();
     }
-    public static void sleep() {
+
+    public static void sleep() {//method sleep
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    public WebDriver getDriver() { //getter
+        return driver;
+    }
+
+    public void setDriver(WebDriver driver) { //setter
+        this.driver = driver;
     }
 }
 

@@ -1,11 +1,15 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.sql.SQLOutput;
 import java.util.List;
+
+import static java.sql.DriverManager.getDriver;
+import static java.sql.DriverManager.getDrivers;
 
 public class NestedFramesPage extends PageBase {
     public NestedFramesPage(WebDriver driver) {
@@ -22,14 +26,15 @@ public class NestedFramesPage extends PageBase {
     WebElement body;
 
     public NestedFramesPage handleNestedFrames(){
-        System.out.println("Number of frames: " + frames.size());
-        driver.switchTo().frame(frame1);//
-        System.out.println("Frame1 text: " + frame1.getText());
-        driver.switchTo().frame(0); // по индеку
+        System.out.println("Number of frames: "+frames.size());
+        System.out.println("Frame1 text: " + getDriver().switchTo().frame(frame1).findElement(By.tagName("body")).getText());
+        getDriver().switchTo().frame(0);
         System.out.println("Frame2 text: " + body.getText());
-        driver.switchTo().parentFrame(); // по родительскому на один уровень вверх
+        getDriver().switchTo().parentFrame();
         System.out.println("Parent Frame text: " + body.getText());
         return this;
     }
+
+
 
 }

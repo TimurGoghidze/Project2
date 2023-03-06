@@ -6,4 +6,5 @@ public class UserData {
     public static final String BOOK_NAME="Git Pocket Guide";
     public static final String EXPECTED1="Book added to your collection!";
     public static final String EXPECTED2="Book already present in the your collection!";
+
 }

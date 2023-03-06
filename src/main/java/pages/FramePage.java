@@ -22,7 +22,7 @@ public class FramePage extends PageBase {
 
     public FramePage returnListOfFrames() {
         System.out.println(frames.size());
-        driver.switchTo().frame(frame1).findElement(By.id("sampleHeading")).getText();
+        getDriver().switchTo().frame(frame1).findElement(By.id("sampleHeading")).getText();
 //   System.out.println(frame1.getText());
 //        for (WebElement element :
 //                frames) {
@@ -31,12 +31,12 @@ public class FramePage extends PageBase {
         return this;
     }
 public void switchToFrameByIndex(int index){
-        driver.switchTo().frame(index);
+        getDriver().switchTo().frame(index);
 }
 
     public void switchToFrameById(WebElement frame){
-        driver.switchTo().frame(frame); // switch by id
-        driver.switchTo().defaultContent();
+        getDriver().switchTo().frame(frame); // switch by id
+        getDriver().switchTo().defaultContent();
     }
 
     public String getText() { //getter for text

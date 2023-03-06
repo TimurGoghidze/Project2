@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,7 +23,7 @@ public class ContactsPage extends PageBase {
     //область видимости, что возращается после нажатия (т.к. ничего не заполняем никакие аргументы не нужны)
     public LoginPage logout() {
         click(logOutButton);
-        return new LoginPage(driver);
+        return new LoginPage(getDriver());
     }
 
     public WebElement getBooks() { //generate Book Getter

@@ -19,19 +19,19 @@ public class ProfilePage extends PageBase {
 
     public BookStorePage scrollDownAndGoToBookStore() {
         clickWithJSExecutor(bookstoreMenu, 0, 250);
-        return new BookStorePage(driver);
+        return new BookStorePage(getDriver());
 
     }
 
     public BookStorePage goToBookStore() {
         click(bookstoreMenu);
-        return new BookStorePage(driver);
+        return new BookStorePage(getDriver());
     }
     @FindBy(xpath = "//button[contains(text(),'Delete All Books')")
     WebElement deleteBooks;
     public ProfilePage deleteAllBooks(){
         clickWithJSExecutor(deleteBooks,0, 100);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7)); // вариант ждать
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(7)); // вариант ждать
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());// подожди пока алерт не появиться
         alert.accept();
         return this;

@@ -4,9 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-import java.util.Set;
-
 public class WindowsPage extends PageBase {
     public WindowsPage(WebDriver driver) {
         super(driver);
@@ -46,10 +43,10 @@ public class WindowsPage extends PageBase {
     public WindowsPage clickButton(WebElement button) {
         click(button);
         sleep();
-        String originalWindow = driver.getWindowHandle(); //возвращает список всех открытых вкладок и мы по ним идем
-        for (String windowHandle : driver.getWindowHandles()) {
+        String originalWindow = getDriver().getWindowHandle(); //возвращает список всех открытых вкладок и мы по ним идем
+        for (String windowHandle : getDriver().getWindowHandles()) {
             if (!originalWindow.contentEquals(windowHandle)) {// если вкладка кот. не равна родительской вкладке
-                driver.switchTo().window(windowHandle); //то переключается на неё
+                getDriver().switchTo().window(windowHandle); //то переключается на неё
                 break; // и выходим из цикла
             }
         }
